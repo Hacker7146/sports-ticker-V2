@@ -1,17 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
     const scoresContainer = document.getElementById('scores');
-    const sports = ['mlb', 'nfl', 'nba', 'ufl'];
-    const apiKey = 'YOUR_ESPN_API_KEY'; // Replace with your actual ESPN API key
-    const apiUrl = (sport) => `https://site.api.espn.com/apis/site/v2/sports/${sport}/scoreboard?apikey=${apiKey}`;
-
-    let activeSport = 'mlb';
+    const sportsApiUrls = {
+        NFL: 'http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard',
+        NBA: 'http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard',
+        MLB: 'http://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard',
+        UFL: 'https://www.espn.com/ufl/scoreboard'
+    };
+    let activeSport = 'NFL';
 
     function fetchScores() {
-        fetch(apiUrl(activeSport))
+        fetch(sportsApiUrls[activeSport])
             .then(response => response.json())
             .then(data => {
                 scoresContainer.innerHTML = '';
-                const events = data.events;
+                const events = data.events || [];
                 events.forEach(event => {
                     const scoreCard = document.createElement('div');
                     scoreCard.className = 'score-card';
