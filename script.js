@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const clientId = 'dj0yJmk9dlZJWDR0ZnlDMHU5JmQ9WVdrOVowZHJUbGx4TkhNbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTYw';
     const clientSecret = '8e75997a96e2ecd9ac13bf1cdb7eead89cdc2f23';
-    let activeSport = 'NFL';
+    let activeSport = 'MLB';
 
     function fetchScores() {
         const url = sportsApiUrls[activeSport];
