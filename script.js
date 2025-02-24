@@ -42,5 +42,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateActiveTab();
     fetchScores();
-    setInterval(fetchScores, 120000); // Update every 2 minutes
+    setInterval(fetchScores, 5000); // Update every 2 minutes
 });
